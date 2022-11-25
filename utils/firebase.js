@@ -2,7 +2,7 @@
 const { initializeApp } = require("firebase/app");
 //IMPORTAMOS EL METODO QUE PERMITE LA CONEXION CON LA BASE DE DATOS CREADA EN FIRESTORE
 const {getFirestore} = require("firebase/firestore");
-const { getAnalytics } =require('firebase/analytics')
+
 
 //CONFIGURACION DE FIREBASE
 const firebaseConfig = {
@@ -17,7 +17,6 @@ const firebaseConfig = {
 
  //INICIALIZAMOS LA CONEXION DE FIREBASE CON REACT
  const app = initializeApp(firebaseConfig);
- const analytics = getAnalytics(app)
 
  //LE PASAMOS AL METODO getFirestore la variable con la inicializacion de conexion
  //NOS RETORNA LA CONEXION A LA BASE DE DATOS Y LA EXPORTAMOS PARA ACCEDER A LA INFORMACION DESDE OTROS COMPONENTES
