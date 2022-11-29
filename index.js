@@ -19,7 +19,6 @@ app.post("/mercadopago", async (req, res) => {
     const queryRef = collection(database, "ordenes de compra");
     //agregamos el documento y obtenemos el id de ref de la orden
     addDoc(queryRef, order).then(async(respuesta) => {
-      console.log(items)
       const preference = {
          metadata: {
             idShop:respuesta.id,
@@ -50,7 +49,6 @@ app.post("/mercadopago", async (req, res) => {
 
 
 app.post("/webhooks", async (req, res) => {
-  console.log(req.body);
   const {
     data: { id },
     type,
@@ -65,9 +63,7 @@ app.post("/webhooks", async (req, res) => {
           },
         }
       );
-      console.log(data);
       const {metadata:{id_shop}} = data;
-      console.log(id_shop);
       if (data.status === "approved" && data.status_detail === "accredited") {
         const docRef = doc(database, "ordenes de compra", id_shop);
         updateDoc(docRef, {ispaid:"approved"}).then(docRef => {
