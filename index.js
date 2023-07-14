@@ -31,7 +31,7 @@ app.post("/mercadopago", async (req, res) => {
              category_id: item.gender,
              quantity: item.quantity,
              currency_id: "COP",
-             unit_price: item.totalPrice,
+             unit_price: item.totalDiscountPrice,
            };
          }),
        };
